@@ -1,0 +1,362 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      background-image: url("space.jpg");
+      padding: 10px;
+      text-align: center;
+    }
+
+    hr {
+      border: dotted #66FF00 6px;
+      border-bottom: none;
+      width: 5%;
+      margin: 10px auto;
+    }
+
+    .back {
+      /* background-image: url("back.jpg"); */
+      height: 100px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      color: yellow;
+      font-size: 50px;
+      font-family: cursive;
+      font-weight: bolder;
+    }
+
+    .a {
+      height: 50px;
+      width: 100%;
+      display: inline-block;
+      color: black;
+      background-color: azure;
+    }
+
+    .b {
+      display: inline-block;
+      padding: 10px;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .b1 {
+      float: right;
+      margin-right: 10px;
+    }
+
+    a {
+      color: white;
+    }
+
+    .c {
+      border-radius: 10px;
+      background-color: white;
+      color: black;
+      float: left;
+      margin-left: 10%;
+      display: inline-block;
+      height: 40px;
+      width: 30%;
+    }
+
+    .d {
+      border-radius: 10px;
+      background-color: white;
+      color: black;
+      float: right;
+      margin-right: 17%;
+      height: 40px;
+      width: 30%;
+    }
+
+    .e {
+      /* display: block; */
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black;
+      width: 70%;
+      /* margin-left: 10%; */
+      padding: 10px;
+      margin: 15px auto;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .e:hover {
+      transform: scale(1.07);
+    }
+
+    .ab1 {
+      border-radius: 50px;
+      background-color: black;
+      color: white;
+      float: left;
+      margin-left: 5%;
+      display: inline-block;
+      height: 300px;
+      width: 40%;
+      padding-left: 15px;
+
+    }
+
+    .ab2 {
+      border-radius: 50px;
+      background-color: black;
+      margin-left: 5%;
+      display: inline-block;
+      color: white;
+      height: 300px;
+      width: 40%;
+      padding-left: 15px;
+      box-sizing: border-box;
+    }
+
+    .ab1:hover {
+      background-color: green;
+      font-weight: bold;
+    }
+
+    .ab2:hover {
+      background-color: green;
+      font-weight: bold;
+    }
+
+    .a1 {
+      float: right;
+    }
+
+    .search {
+      padding: 10px;
+      border-radius: 20px;
+    }
+
+    .search:focus {
+      outline: none;
+    }
+
+
+    #head {
+      position: relative;
+      font-size: 40px;
+      font-family: Georgia;
+      margin-top: 27px;
+    }
+
+    #logo {
+      float: left;
+      height: 100px;
+      width: 100px;
+    }
+
+    #d2 {
+      background-color: black;
+      background-image: Url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAY6gl3CirmvWKoy2CT6Sfo6wojtOo2QDCqe9yU_OksbsNrx0d9Q");
+      background-repeat: no-repeat;
+      height: 200px;
+      margin-top: 80px;
+      background-size: 100% 100%;
+    }
+
+    #head1 {
+      color: white;
+      text-align: center;
+      font-size: 40px;
+    }
+
+    #nav {
+      text-align: center;
+    }
+
+    #nav ul,
+    #nav li {
+      list-style-type: none;
+    }
+
+    #nav li {
+      padding: 15px;
+      color: chocolate;
+      display: inline-block;
+    }
+
+    #nav li a {
+      color: rgb(248, 164, 8);
+      font-size: 25px;
+      text-decoration: none;
+    }
+
+    #nav li a:hover {
+      border-bottom: 1px solid;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-nWoKw99jd0WQYXzlI-JoSX3QRo-WgvAzs_l41aedKuYZ7ZGTVg"
+    id="logo">
+  <h1 id="head">Know Your Future</h1>
+  <div id="d2">
+    <h1 id="head1"><b>Astrology in your hands</b></h1>
+    <nav id="nav">
+      <ul>
+        <li><a href="knowyourfuture.html"><b>Home</b></a></li>
+        <li><a href="Q2.html"><b>Sun And Moon Signs</b></a></li>
+        <li><a href="prog.html"><b>Astro Calculator</b></a></li>
+        <li><a href="index.html"><b>Feedback</b></a></li>
+      </ul>
+      <nav>
+  </div>
+  <div class="back">
+    <center>Know your future</center>
+  </div>
+  <hr><br>
+  <div ng-app="myapp" ng-controller="namesCtrl">
+    <div class="ab1" ng-click="change(1)">
+      <p>
+        <center>
+          <h1>Sun Signs</h1>
+        </center>
+      </p><br>
+      <center><img src="sun.jpg" height="70px" width="70px"></center><br><br>
+      <p class="a1">
+        <center>In astrology language, your Sun sign dictates your zodiac personality.
+          Sun sign is easy to determine, through your day and month of birth.</center>
+      </p>
+    </div>
+    <div class="ab2" ng-click="change(2)">
+      <p>
+        <center>
+          <h1>Moon Signs</h1>
+        </center>
+      </p><br>
+      <center><img src="moon.jpg" height="70px" width="70px"></center><br><br>
+      <p class="a1">
+        <center>In astrology language, your Sun sign dictates your zodiac personality.
+          Sun sign is easy to determine, through your day and month of birth.</center>
+      </p>
+    </div>
+    <br><br>
+    <p>
+      <center> <input class="search" type="text" ng-model="test" placeholder="Type your zodiac here"></center>
+    </p>
+    <div ng-show="myVar1" class="e" ng-repeat="x in names1 | filter:test">
+      <h1>{{x.name}}</h1><br />
+      <p>{{x.info}}</p>
+    </div>
+    <div ng-show="!myVar1" class="e" ng-repeat="x in names2 | filter:test">
+      <h1>{{x.name}}</h1><br />
+      <p>{{x.info}}</p>
+    </div>
+    <div>
+    </div>
+    <script>
+      angular.module('myapp', []).controller('namesCtrl', function ($scope) {
+        $scope.myVar1 = true;
+        $scope.change = function (num) {
+          if (num === 1) {
+            $scope.myVar1 = true;
+          } else if (num === 2) {
+            $scope.myVar1 = false;
+          }
+        }
+        $scope.names1 = [{
+            "name": "Aries (March 21 - April 19)",
+            "info": "Aries loves to be number one, so it’s no surprise that these audacious rams are the first sign of the zodiac. Bold and ambitious, Aries dives headfirst into even the most challenging situations."
+          },
+          {
+            "name": "Taurus (April 20 - May 20)",
+            "info": "Taurus is an earth sign represented by the bull. Like their celestial spirit animal, Taureans enjoy relaxing in serene, bucolic environments, surrounded by soft sounds, soothing aromas, and succulent flavors."
+          },
+          {
+            "name": "Gemini (May 21 - June 20)",
+            "info": "Have you ever been so busy that you wished you could clone yourself just to get everything done? That’s the Gemini experience in a nutshell. Appropriately symbolized by the celestial twins, this air sign was interested in so many pursuits that it had to double itself."
+          },
+          {
+            "name": "Cancer (June 21 - July 22)",
+            "info": "Cancer is a cardinal water sign. Represented by the crab, this oceanic crustacean seamlessly weaves between the sea and shore, representing Cancer’s ability to exist in both emotional and material realms. Cancers are highly intuitive, and their psychic abilities manifest in tangible spaces: For instance, Cancers can effortlessly pick up the energies of a room."
+          },
+          {
+            "name": "Leo (July 23 - August 22)",
+            "info": "Roll out the red carpet, because Leo has arrived. Leo is represented by the lion, and these spirited fire signs are the kings and queens of the celestial jungle. They’re delighted to embrace their royal status: Vivacious, theatrical, and passionate, Leos love to bask in the spotlight and celebrate themselves."
+          },
+          {
+            "name": "Virgo (August 23 - September 22)",
+            "info": "Virgo is an earth sign historically represented by the goddess of wheat and agriculture, an association that speaks to Virgo’s deep-rooted presence in the material world. Virgos are logical, practical, and systematic in their approach to life. This earth sign is a perfectionist at heart and isn’t afraid to improve skills through diligent and consistent practice."
+          },
+          {
+            "name": "Libra (September 23 - October 22)",
+            "info": "Libra is an air sign represented by the scales (interestingly, the only inanimate object of the zodiac), an association that reflects Libra's fixation on balance and harmony. Libra is obsessed with symmetry and strives to create equilibrium in all areas of life."
+          },
+          {
+            "name": "Scorpio (October 23 - November 21)",
+            "info": "Scorpio is one of the most misunderstood signs of the zodiac. Because of its incredible passion and power, Scorpio is often mistaken for a fire sign. In fact, Scorpio is a water sign that derives its strength from the psychic, emotional realm."
+          },
+          {
+            "name": "Sagittarius (November 22 - December 21)",
+            "info": "Represented by the archer, Sagittarians are always on a quest for knowledge. The last fire sign of the zodiac, Sagittarius launches its many pursuits like blazing arrows, chasing after geographical, intellectual, and spiritual adventures. "
+          },
+
+        ];
+        $scope.names2 = [{
+            "name": "Aries Moon",
+            "info": "The first sign of the zodiac, Aries is known for an impulsive and fiery disposition. Likewise, those born with an Aries moon are often identified by their signature hot-headedness. Aries moons know what they want (or, at the very least, their desires can feel like needs). They're emotionally satisfied by excitement, spontaneity, and victory, whatever that means to them."
+          },
+          {
+            "name": "Taurus Moon",
+            "info": "Taurus is one of the most sensual signs of the zodiac. Those born with a Taurus moon are satiated by cozy environments, delicious meals, and expressions of luxury. The Taurus moon is a creature of habit and will always prefer stability over change."
+          },
+          {
+            "name": "Gemini Moon",
+            "info": "Gemini is known for mercuriality (after all, this air sign is governed by Mercury). A Gemini grounds themselves with facts and information, so communication is paramount for those born under a Gemini moon. It is critical that Gemini moons have outlets for expression: They should celebrate their loquaciousness and socialize in a variety of communities."
+          },
+          {
+            "name": "Cancer Moon",
+            "info": "The moon governs Cancer, so as a moon sign, Cancer is in its planetary domicile. Those born under this lunation are extremely impacted by their surroundings and can instantly read the energy of a room. As the moon is constantly changing, their emotions are always in flux. It's important for the Cancer moon to always feel safe and supported."
+          },
+          {
+            "name": "Leo Moon",
+            "info": "Leo is ruled by the sun, but in a moon placement, this fire sign needs to work twice as hard to make sure it's visible. The Leo moon is a creative spirit, fueled by warmth, generosity, and (naturally) an audience. The Leo moon hates to feel eclipsed, so those born under this lunation should find stages on which they can share their innate gifts."
+          },
+          {
+            "name": "Virgo Moon",
+            "info": "Virgo is the most analytical sign of the zodiac. Accordingly, those with a Virgo moon placement are satisfied by logic, organization, and structure. Virgo moons excel at creating comprehensive, dynamic systems for themselves and, perhaps even more importantly, for others. They love to be helpful and are always fulfilled when contributing in practical ways."
+          },
+          {
+            "name": "Libra Moon",
+            "info": "Libra is symbolized by the scales, a visual representation of balance, harmony, and union. Those born under this lunation are natural mediators, and Libra moons are happiest when keeping the peace. They also thrive in partnership, so it's common to find Libra moons moving seamlessly between relationships."
+          },
+          {
+            "name": "Scorpio Moon",
+            "info": "Scorpio is a water sign, known for its high-octane emotional intensity. Scorpio moons crave deep connections and transformative experiences, and they also take privacy seriously. Those with this placement should honor it by creating (and maintaining) boundaries."
+          },
+          {
+            "name": "Sagittarius Moon",
+            "info": "Sagittarius is the last fire sign, represented by the archer. Sagittarius is known for brazen curiosity, and Sagittarius moons are fulfilled by philosophy, travel, and intellectual expansion. Those born under this placement are always on a quest, and it's important for them to have the freedom to explore and embrace the unknown."
+          },
+          {
+            "name": "Capricorn Moon",
+            "info": "Hardworking and industrious, Capricorn is renowned for a steadfast dedication. Within a moon placement, Capricorn is fulfilled through successes and achievements. Those born under this lunation take their responsibilities seriously, connecting their emotions to their accomplishments. The Capricorn moon should always be working toward a goal."
+          },
+          {
+            "name": "Aquarius Moon",
+            "info": "Aquarius is the most humanitarian sign of the zodiac, so those born under this moon experience their emotions as part of the collective experience. The Aquarius moon is fueled by egalitarianism, so these individuals often emote based on their values rather than their sensitivities. The Aquarian moon wants to do the right thing — even if that means putting the greater good above their own needs."
+          },
+          {
+            "name": "Pisces Moon",
+            "info": "The final sign of the zodiac is associated with great empathy and innate psychic powers. Accordingly, sensitive Pisces moons are constantly absorbing energy. They feel deeply, and without an anchor, they can easily be engulfed in a sea of emotions. Those with this placement should honor their moon sign by celebrating their otherworldly creativity and benevolent generosity."
+          },
+        ];
+
+      });
+    </script>
+</body>
+
+</html>

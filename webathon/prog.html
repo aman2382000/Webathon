@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Number Calculator</title>
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			background-image: url("space.jpg");
+			text-align: center;
+			padding: 10px;
+		}
+
+		#btn{
+			width:50%;
+			height: 50px;
+			text-align:center;
+			background-color:green;
+			color:white;
+			test-shadow: 20px;
+			box-shadow: 5px 5px 2px;
+			align-items: center;
+		}
+		#btn:hover{
+			transform: scale(1.07);	
+		}
+		#num{
+			border-radius: 10px;
+
+		}
+
+		#d1 {
+			background-color: palevioletred;
+			height: 100px;
+		}
+
+		#head {
+			position: relative;
+			font-size: 40px;
+			font-family: Georgia;
+		}
+
+		#logo {
+			float: left;
+			height: 100px;
+			width: 100px;
+		}
+
+		#d2 {
+			background-color: black;
+			background-image: Url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAY6gl3CirmvWKoy2CT6Sfo6wojtOo2QDCqe9yU_OksbsNrx0d9Q");
+			background-repeat: no-repeat;
+			height: 200px;
+			margin-top: 80px;
+			background-size: 100% 100%;
+		}
+
+		#head1 {
+			color: white;
+			text-align: center;
+			font-size: 40px;
+		}
+
+		#nav {
+			text-align: center;
+		}
+
+		#nav ul,
+		#nav li {
+			list-style-type: none;
+		}
+
+		#nav li {
+			padding: 15px;
+			color: chocolate;
+			display: inline-block;
+		}
+
+		#nav li a {
+			color: rgb(248, 164, 8);
+			font-size: 25px;
+			text-decoration: none;
+		}
+		#nav li a:hover {
+            border-bottom: 1px solid;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+		table{
+			font-family: cursive;
+			font-size: 25px;
+		}
+		div{
+			text-align: center;
+			background-color: rgba(255,255,255,0.8);
+			color: blue;
+			border-radius: 20px;
+		}
+		.a{
+			background-color: rgba(255,255,255,0.8);
+		}
+		.a:hover{
+			transform: scale(1.07);
+		}
+		.c:hover{
+			transform: scale(1.07);
+		}
+		.b:hover{
+			transform: scale(1.07);
+		}
+		input{
+			height: 40px;
+			width: 200px;
+			padding: 10px;
+			border-radius: 10px;
+		}
+		hr{
+			border: dotted white 10px;
+			border-bottom: none;
+			width: 5%;
+			margin: 10px auto;
+		}
+		</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+		var assign = {'a':1, 'b':2, 'c':3, 'd':4, 'e':5, 'f':6, 'g':7, 'h':8, 'i':9,
+					  'j':1, 'k':2, 'l':3, 'm':4, 'n':5, 'o':6, 'p':7, 'q':8, 'r':9,
+					  's':1, 't':2, 'u':3, 'v':4, 'w':5, 'x':6, 'y':7, 'z':8};
+
+		function getName(){
+			var name = document.getElementById("name").value;
+			name = name.toLowerCase();
+			name = name.split(" ");
+			return name;
+		}
+
+		function getDate(){
+			var dob = document.getElementById("dob").value;
+			dob = dob.split("-");
+			return dob;
+		}
+
+		function sumOfNum(num){
+			if(num < 10){
+				return num;
+			}
+			sum = 0;
+			while(num){
+				sum += num%10;
+				num = Math.floor(num/10);
+			}
+			return sum;
+		}
+
+		function reduceNum(num){
+			var result = sumOfNum(num);
+			while(result > 9){
+				result = sumOfNum(result);
+			}
+			return result;
+		}
+
+		function lifePathNumber(){
+			var dob = getDate();
+			var year = parseInt(dob[0]);
+			var month = parseInt(dob[1]);
+			var date = parseInt(dob[2]);
+
+			var life = reduceNum(year) + reduceNum(month) + reduceNum(date);
+			life = reduceNum(life);
+			return life;
+		}
+
+		function isVowel(value){
+			var re = /[aeiouAEIOU]/;
+			return re.test(value);
+		}
+
+		function personalityNumber(){
+			var name = getName();
+			var sum = 0;
+			name.forEach(function(value, i){
+				var temp = value.split('');
+				temp.forEach(function(element, j){
+					if(!isVowel(element)){
+						var s = element;
+						sum += parseInt(assign[s]);
+					}
+				})
+			});
+			sum = reduceNum(sum);
+			return sum;
+		}
+
+		function heartsNumber(){
+			var name = getName();
+			var sum = 0;
+			name.forEach(function(value, i){
+				var temp = value.split('');
+				temp.forEach(function(element, j){
+					if(isVowel(element)){
+						console.log(element);
+						var s = element;
+						console.log(assign[s]);
+						sum += parseInt(assign[s]);
+					}
+				})
+			});
+			sum = reduceNum(sum);
+			return sum;
+		}
+
+		$(document).ready(function(){
+			$("#btn").click(function(){
+				var life = lifePathNumber();
+				var personality = personalityNumber();
+				var hearts = heartsNumber();
+				$("#lifePath").html(life);
+				$("#personality").html(personality);
+				$("#hearts").html(hearts);
+
+				var i = life-1;
+				var j = personality-1;
+				var k = hearts - 1;
+				$.getJSON("life.json", function(result){
+					$("#lifeDesc").html(result[i]["desc"]);
+				});
+				$.getJSON("personality.json", function(result){
+					$("#persDesc").html(result[j]["desc"]);
+				});
+				$.getJSON("hearts.json", function(result){
+					$("#heartsDesc").html(result[k]["desc"]);
+				})
+			})
+		});
+
+	</script>
+</head>
+
+<body>
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-nWoKw99jd0WQYXzlI-JoSX3QRo-WgvAzs_l41aedKuYZ7ZGTVg"
+		id="logo">
+	<h1 id="head">Know Your Future</h1>
+	<div id="d2">
+		<h1 id="head1"><b>Astrology in your hands</b></h1>
+		<nav id="nav">
+			<ul>
+				<li><a href="knowyourfuture.html"><b>Home</b></a></li>
+				<li><a href="Q2.html"><b>Sun And Moon signs</b></a></li>
+				<li><a href="prog.html"><b>Astro Calculator</b></a></li>
+				<li><a href="index.html"><b>Feedback</b></a></li>
+			</ul>
+			<nav>
+	</div>
+
+	<table align="center" width="500px" height="300px">
+			<tr>
+				<th colspan="2" bgcolor="blue" id="num">Numerology</th>
+			</tr>
+			<tr>
+		<td><label>Enter your name :</td><td><input type="text" id = "name"></label></td>
+	</tr>
+	<tr>
+		<td><label>Enter your dob :</td><td><input type="date" id="dob"></label></td><br>
+		<tr>
+		<td colspan="2">
+		<center><button id = "btn"><font font-size = "15px"><strong>Test</strong></font></button></center><br>
+	</td>
+	</tr>
+	</table>
+	<br><br>
+	<div>
+		<div class = "a"><font color="green">Your Life Path Number is :</font> <p id = "lifePath"></p><p id = "lifeDesc"></p></div><hr>
+		<div class = "b"><font color="green">Your Personality Number is :</font> <p id = "personality"></p><p id = "persDesc"></p></div><hr>
+		<div class="c"><font color="green">Your Heart's Desire Number is :</font> <p id = "hearts"></p><p id = "heartsDesc"></p></div>
+	</div>
+</body>
+
+</html>
